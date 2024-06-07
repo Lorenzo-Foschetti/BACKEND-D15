@@ -27,8 +27,8 @@ public abstract class ElementoCatalogo {
 
     }
 
-    public ElementoCatalogo(UUID codiceibsn, String titolo, int dataPubblicazione, int pagine) {
-        this.codiceibsn = codiceibsn;
+    public ElementoCatalogo(String titolo, int dataPubblicazione, int pagine) {
+
         this.titolo = titolo;
         this.dataPubblicazione = dataPubblicazione;
         this.pagine = pagine;

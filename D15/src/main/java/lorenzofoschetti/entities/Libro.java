@@ -3,8 +3,6 @@ package lorenzofoschetti.entities;
 
 import jakarta.persistence.Entity;
 
-import java.util.UUID;
-
 @Entity
 
 public class Libro extends ElementoCatalogo {
@@ -18,8 +16,8 @@ public class Libro extends ElementoCatalogo {
     }
 
 
-    public Libro(UUID codiceibsn, String titolo, int dataPubblicazione, int pagine, String autore, String genere) {
-        super(codiceibsn, titolo, dataPubblicazione, pagine);
+    public Libro(String titolo, int dataPubblicazione, int pagine, String autore, String genere) {
+        super(titolo, dataPubblicazione, pagine);
         this.autore = autore;
         this.genere = genere;
     }
