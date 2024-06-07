@@ -2,9 +2,11 @@ package lorenzofoschetti.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
 import lorenzofoschetti.entities.ElementoCatalogo;
 import lorenzofoschetti.exceptions.NotFoundException;
 
+import java.util.List;
 import java.util.UUID;
 
 public class ElementoCatalogoDAO {
@@ -53,4 +55,19 @@ public class ElementoCatalogoDAO {
         transaction.commit();
         System.out.println("L'elemento" + foundElement.getTitolo() + " è stato correttamente eliminato dal DATABASE!");
     }
+
+    //4. Metodo di ricerca per anno di pubblicazione
+
+    public List<ElementoCatalogo> findByYear(Integer dataPubblicazione) {
+
+        TypedQuery<ElementoCatalogo> elementiTrovati = em.createQuery("SELECT el FROM ElementoCatalogo el WHERE el.dataPubblicazione = :dataPubblicazione", ElementoCatalogo.class);
+
+
+        elementiTrovati.setParameter("dataPubblicazione", dataPubblicazione);
+
+
+        return elementiTrovati.getResultList();
+    }
+
+
 }

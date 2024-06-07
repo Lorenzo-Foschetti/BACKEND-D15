@@ -22,5 +22,10 @@ public class Application {
 //        System.out.println(el);
 //        ed.findByIdAndDelete(UUID.fromString("775aba1f-82d7-4827-b28e-8e98e6b829ad"));
 
+        ed.findByYear(2014).forEach(System.out::println);
+
+        em.close();
+        emf.close();
+
     }
 }
