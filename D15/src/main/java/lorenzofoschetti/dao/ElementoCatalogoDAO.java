@@ -69,5 +69,27 @@ public class ElementoCatalogoDAO {
         return elementiTrovati.getResultList();
     }
 
+    //5. Metodo di ricerca per autore
+
+    public List<ElementoCatalogo> findByAuthor(String autore) {
+
+        TypedQuery<ElementoCatalogo> elementiTrovati = em.createQuery("SELECT el FROM ElementoCatalogo el WHERE el.autore = :autore", ElementoCatalogo.class);
+
+
+        elementiTrovati.setParameter("autore", autore);
+
+
+        return elementiTrovati.getResultList();
+    }
+
+    //6. Metodo di ricerca per titolo o parte di esso
+
+    public List<ElementoCatalogo> findByNameOrSimilar(String partialTitle) {
+        TypedQuery<ElementoCatalogo> elementiTrovati = em.createQuery("SELECT el FROM ElementoCatalogo el WHERE LOWER(el.titolo) LIKE LOWER(:partialTitle)", ElementoCatalogo.class);
+
+        elementiTrovati.setParameter("partialTitle", partialTitle + "%");
+        return elementiTrovati.getResultList();
+    }
+
 
 }
