@@ -35,4 +35,22 @@ public class ElementoCatalogoDAO {
         if (elementoCatalogo == null) throw new NotFoundException(elementoId);
         return elementoCatalogo;
     }
+
+    //3.Metodo find and delete
+
+
+    public void findByIdAndDelete(UUID elementoId) {
+
+        ElementoCatalogo foundElement = this.findById(elementoId);
+
+
+        EntityTransaction transaction = em.getTransaction();
+
+        transaction.begin();
+
+        em.remove(foundElement);
+
+        transaction.commit();
+        System.out.println("L'elemento" + foundElement.getTitolo() + " è stato correttamente eliminato dal DATABASE!");
+    }
 }
