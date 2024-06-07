@@ -1,5 +1,6 @@
 package lorenzofoschetti.entities;
 
+
 public class Libro extends ElementoCatalogo {
     //attributi
     String autore;
@@ -29,6 +30,7 @@ public class Libro extends ElementoCatalogo {
     public void setGenere(String genere) {
         this.genere = genere;
     }
+
 
     @Override
     public String toString() {
