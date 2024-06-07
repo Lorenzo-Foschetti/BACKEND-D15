@@ -1,28 +1,46 @@
 package lorenzofoschetti.entities;
 
+import jakarta.persistence.*;
+
+import java.util.UUID;
+
+@Entity
+@Table(name = "Catalogo")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
 public abstract class ElementoCatalogo {
     //attributi
-    String codiceibsn;
-    String titolo;
-    int dataPubblicazione;
-    int pagine;
+
+    @Id
+    @GeneratedValue
+
+    private UUID codiceibsn;
+
+    private String titolo;
+
+    private int dataPubblicazione;
+
+    private int pagine;
 
     //costruttore
-    public ElementoCatalogo(String codiceibsn, String titolo, int dataPubblicazione, int pagine) {
+    public ElementoCatalogo() {
+
+    }
+
+    public ElementoCatalogo(UUID codiceibsn, String titolo, int dataPubblicazione, int pagine) {
         this.codiceibsn = codiceibsn;
         this.titolo = titolo;
         this.dataPubblicazione = dataPubblicazione;
         this.pagine = pagine;
-
-
     }
 
     //getter e setter
-    public String getCodiceibsn() {
+
+    public UUID getCodiceibsn() {
         return codiceibsn;
     }
 
-    public void setCodiceibsn(String codiceibsn) {
+    public void setCodiceibsn(UUID codiceibsn) {
         this.codiceibsn = codiceibsn;
     }
 

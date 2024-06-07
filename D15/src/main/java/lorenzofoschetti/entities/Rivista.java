@@ -1,6 +1,11 @@
 package lorenzofoschetti.entities;
 
+import jakarta.persistence.Entity;
 import lorenzofoschetti.enums.Periodicità;
+
+import java.util.UUID;
+
+@Entity
 
 public class Rivista extends ElementoCatalogo {
 
@@ -8,7 +13,12 @@ public class Rivista extends ElementoCatalogo {
     Periodicità periodicità;
 
     //costruttore
-    public Rivista(String codiceibsn, String titolo, int dataPubblicazione, int pagine, Periodicità periodicità) {
+    public Rivista() {
+
+    }
+
+
+    public Rivista(UUID codiceibsn, String titolo, int dataPubblicazione, int pagine, Periodicità periodicità) {
         super(codiceibsn, titolo, dataPubblicazione, pagine);
         this.periodicità = periodicità;
     }
@@ -26,10 +36,6 @@ public class Rivista extends ElementoCatalogo {
     public String toString() {
         return "Rivista{" +
                 "periodicità=" + periodicità +
-                ", codiceibsn=" + codiceibsn +
-                ", titolo='" + titolo + '\'' +
-                ", dataPubblicazione=" + dataPubblicazione +
-                ", pagine=" + pagine +
                 '}';
     }
 }

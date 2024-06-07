@@ -1,14 +1,24 @@
 package lorenzofoschetti.entities;
 
 
+import jakarta.persistence.Entity;
+
+import java.util.UUID;
+
+@Entity
+
 public class Libro extends ElementoCatalogo {
     //attributi
     String autore;
     String genere;
 
     //costruttore
+    public Libro() {
 
-    public Libro(String codiceibsn, String titolo, int dataPubblicazione, int pagine, String autore, String genere) {
+    }
+
+
+    public Libro(UUID codiceibsn, String titolo, int dataPubblicazione, int pagine, String autore, String genere) {
         super(codiceibsn, titolo, dataPubblicazione, pagine);
         this.autore = autore;
         this.genere = genere;
@@ -37,10 +47,6 @@ public class Libro extends ElementoCatalogo {
         return "Libro{" +
                 "autore='" + autore + '\'' +
                 ", genere='" + genere + '\'' +
-                ", codiceibsn=" + codiceibsn +
-                ", titolo='" + titolo + '\'' +
-                ", dataPubblicazione=" + dataPubblicazione +
-                ", pagine=" + pagine +
                 '}';
     }
 }
